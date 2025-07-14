@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model article {
+  id           String    @id @db.VarChar(255)
+  title        String?   @db.VarChar(255)
+  excerpt      String?   @db.VarChar(900)
+  content      String?
+  tags         String?   @db.VarChar(255)
+  views        Int?
+  likes        Int?
+  shares       Int?
+  revision     Int?
+  created_by   String?   @db.VarChar(32)
+  created_time DateTime? @db.Timestamp(6)
+  updated_by   String?   @db.VarChar(32)
+  updated_time DateTime? @db.Timestamp(6)
+}
+
+model question {
+  id           String    @id @db.VarChar(255)
+  title        String?   @db.VarChar(255)
+  content      String?
+  tags         String?   @db.VarChar(255)
+  created_by   String?   @db.VarChar(32)
+  created_time DateTime? @db.Timestamp(6)
+  updated_by   String?   @db.VarChar(32)
+  updated_time DateTime? @db.Timestamp(6)
+}
+
+model tag {
+  id   String    @id @db.VarChar(255)
+  name String    @db.VarChar(255)
+  date DateTime? @db.Timestamp(6)
+}
+
+model userinfo {
+  id           String    @id @db.VarChar(255)
+  username     String?   @db.VarChar(255)
+  account      String?   @db.VarChar(255)
+  password     String?   @db.VarChar(255)
+  avatar       String?   @db.VarChar(255)
+  bio          String?   @db.VarChar(255)
+  location     String?   @db.VarChar(255)
+  occupation   String?   @db.VarChar(255)
+  github       String?   @db.VarChar(255)
+  twitter      String?   @db.VarChar(255)
+  email        String?   @db.VarChar(255)
+  followers    Int?
+  revision     Int?
+  created_by   String?   @db.VarChar(32)
+  created_time DateTime? @db.Timestamp(6)
+  updated_by   String?   @db.VarChar(32)
+  updated_time DateTime? @db.Timestamp(6)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model hobby {
+  id           String    @id @db.VarChar(255)
+  title        String?   @db.VarChar(255)
+  description  String?   @db.VarChar(255)
+  videourl     String?   @db.VarChar(255)
+  thumbnail    String?   @db.VarChar(255)
+  tag          String?   @db.VarChar(255)
+  views        Int?
+  likes        Int?
+  shares       Int?
+  revision     Int?
+  created_by   String?   @db.VarChar(32)
+  created_time DateTime? @db.Timestamp(6)
+  updated_by   String?   @db.VarChar(32)
+  updated_time DateTime? @db.Timestamp(6)
+}
