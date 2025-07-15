@@ -55,13 +55,11 @@ const Home: NextPage = () => {
               </span>
             </h1>
             <p
-              // style={{ fontFamily: "Zhi Mang Xing, cursive" }}
               className=" text-[clamp(1rem,3vw,1.5rem)] text-gray-300 max-w-3xl mx-auto mb-8"
             >
               热爱全栈开发
             </p>
             <p
-              // style={{ fontFamily: "Zhi Mang Xing, cursive" }}
               className="text-[clamp(1rem,3vw,1.5rem)] text-gray-300 max-w-3xl mx-auto mb-8"
             >
               分享和记录自己在开发过程中遇到的问题和解决方案。
