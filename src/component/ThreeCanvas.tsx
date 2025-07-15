@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { OrbitControls } from '@three-ts/orbit-controls';
+import { OrbitControls } from "@three-ts/orbit-controls";
 
 interface ThreeCanvasProps {
   className?: string;
@@ -140,7 +140,8 @@ export default function ThreeCanvas({ className }: ThreeCanvasProps) {
       window.removeEventListener("resize", handleResize);
 
       if (containerRef.current && rendererRef.current?.domElement) {
-        containerRef.current.removeChild(rendererRef.current.domElement);
+        const container = containerRef.current;
+        container.removeChild(rendererRef.current.domElement);
       }
 
       // 释放资源
