@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
-        const id = params.id;
+        const id = (await params).id;
         if (!id) {
             return NextResponse.json({ error: "缺少id参数" }, { status: 400 });
         }
